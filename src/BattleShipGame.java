@@ -47,7 +47,21 @@ public void resetGame() {
     public void updateStatus() {
         statusPanel.update();
     }
+private JPanel createButtonPanel() {
+        JPanel panel = new JPanel();
 
+        JButton playAgainButton = new Jbutton ("Play Again");
+        playAgainButton.addACtionListener (e -> gameController.playAGain());
+
+    JButton quitButton = new JButton("Quit");
+    quitButton.addActionListener(e -> gameController.quitGame());
+
+    panel.add(playAgainButton);
+    panel.add(quitButton);
+
+    return panel;
+
+}
     }
 
 
