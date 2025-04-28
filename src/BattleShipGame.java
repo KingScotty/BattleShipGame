@@ -50,8 +50,8 @@ public void resetGame() {
 private JPanel createButtonPanel() {
         JPanel panel = new JPanel();
 
-        JButton playAgainButton = new Jbutton ("Play Again");
-        playAgainButton.addACtionListener (e -> gameController.playAGain());
+        JButton playAgainButton = new JButton ("Play Again");
+        playAgainButton.addActionListener(e -> gameController.playAgain());
 
     JButton quitButton = new JButton("Quit");
     quitButton.addActionListener(e -> gameController.quitGame());
