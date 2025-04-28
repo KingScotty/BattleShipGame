@@ -20,8 +20,8 @@ public class GameBoard extends JPanel {
     private void initializeBoard(){
         for (int row = 0; row < rows; row++){
             for(int col = 0; col < cols; col++){
-                BoardCell cell = new BoardCell(row, col);
-                cells[row][col] = cell;
+                BoardCell cell = new BoardCell(row, col, missileTracker);
+                board[row][col] = cell;
                 add(cell);
             }
         }
@@ -36,6 +36,6 @@ public class GameBoard extends JPanel {
     }
 
     public BoardCell getCell(int row, int col){
-        return cells[row][col];
+        return board[row][col];
     }
 }

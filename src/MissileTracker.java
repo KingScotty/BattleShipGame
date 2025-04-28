@@ -42,9 +42,18 @@ public void registerMiss(int row, int col) {
         strikeCounter++;
         missCounter = 0;
     }
-    if (strikeCounter >= 3) {
+   /* if (strikeCounter >= 3) {
         JOptionPane.showMessageDialog(game, "You have 3 strikes! Game Over!");
         int choice = JOptionPane.showConfirmDialog(game, "Do you want to play again?", "Play Again", JOptionPane.YES_NO_OPTION);
+        if (choice == JOptionPane.YES_OPTION) {
+            game.resetGame();
+        } else {
+            System.exit(0);
+        }
+    } */
+    if (totalHitCounter >= 17) {
+        JOptionPane.showMessageDialog(game, "You WIN! Congratulations!");
+        int choice = JOptionPane.showConfirmDialog(game, "Play Again?", "Victory!", JOptionPane.YES_NO_OPTION);
         if (choice == JOptionPane.YES_OPTION) {
             game.resetGame();
         } else {
