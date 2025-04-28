@@ -40,6 +40,13 @@ public void resetGame() {
     revalidate();
     repaint();
 }
+    public BoardCell getCell(int row, int col) {
+        return gameBoard.getCell(row, col);
+    }
+
+    public void updateStatus() {
+        statusPanel.update();
+    }
 
     }
 
