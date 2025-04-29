@@ -1,0 +1,66 @@
+@startuml
+
+class GameBoard {
+    - BoardCell[][] board
+    - int rows
+    - int cols
+    - MissileTracker missileTracker
+    + GameBoard(int rows, int cols, MissileTracker missileTracker)
+    - void initializeBoard()
+    + void resetBoard()
+    + BoardCell getCell(int row, int col)
+}
+
+class ShipPlacer {
+    - GameBoard board
+    - Random random
+    - final int[] SHIP_SIZES
+    + ShipPlacer(GameBoard board)
+    + void placeShips()
+    - boolean canPlaceShip(int row, int col, int size, boolean horizontal)
+    - void placeShip(int row, int col, int size, boolean horizontal)
+}
+
+class MissileTracker {
+    - int missCounter
+    - int strikeCounter
+    - int totalMissCounter
+    - int totalHitCounter
+    - BattleShipGame game
+    + MissileTracker(BattleShipGame game)
+    + void registerHit(int row, int col)
+    + void registerMiss(int row, int col)
+    + void reset()
+    + int getMissCounter()
+    + int getStrikeCounter()
+    + int getTotalMissCounter()
+    + int getTotalHitCounter()
+}
+
+class Main {
+    + void main(String[] args)
+}
+
+class BattleShipGame {
+    + BoardCell getCell(int row, int col)
+    + void updateStatus()
+    + void resetGame()
+}
+
+class BoardCell {
+    + Ship getShip()
+    + void setShip(Ship ship)
+}
+
+class Ship {
+    + Ship(int size)
+    + void hit()
+    + boolean isSunk()
+}
+
+GameBoard --> MissileTracker
+ShipPlacer --> GameBoard
+MissileTracker --> BattleShipGame
+BoardCell --> Ship
+
+@enduml
